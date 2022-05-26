@@ -4,7 +4,8 @@ import actions from './actions.js'
 import modules from './modules.js'
 
 const state = {
-    count: 0
+    //所有的任务列表
+    list: []
 };
 
 import { createStore } from 'vuex'

@@ -2,6 +2,7 @@
    <div class="todos">
        <a-input placeholder= "请输入任务" class="my_ipt" />
        <a-button type="primary">添加事项</a-button>
+
        <a-list bordered :dataSource="list" class="dt_list">
            <!-- <a-list-item slot="renderItem" slot-scope="item"> -->
                   <!--复选框-->
@@ -20,7 +21,7 @@
             <div class="footer">
             <!-- <div slot="footer" class="footer">-->
                 <!--未完成的任务个数-->
-                <span>0条剩余</span>
+                <span class="sy">0条剩余</span>
                 <!--操作按钮-->
                  <a-button-group>
                      <a-button type="primary">全部</a-button>
@@ -36,48 +37,38 @@
 <script>
 //引入组件
 //import 'ant-design-vue/dist/antd.vue'
+import {mapState} from 'vuex'
 
 export default {
   name: 'App',
   data(){
       return {
-        list:[
-          {
-            id:0,
-            info:'Racing car sprays burning fuel into crowd.',
-            done:false
-          },
-          {
-            id:1,
-            info:'Japanese princess to web commoner.',
-            done:false
-          },
-          {
-            id:2,
-            info:'Australian walk 100Km after outback crash.',
-            done:false
-          },
-          {
-            id:3,
-            info:'Man charged over missing wedding girl.',
-            done:false
-          },
-          {
-            id:4,
-            info:'Los Angeles battles huge wildfire.',
-            done:false
-          }
-        ]
+          list:[]
       }
   },
   components: {
     
+  },
+  computed:{
+    ...mapState(['list'])//vuex中state中的list(备注记得加[]号)
+  },
+  watch:{
+    //  list(newList,oldList){
+    //     console.log(newList,oldList)
+    //  }
+  },
+  created(){
+    this.$store.dispatch('getList')
+    console.log(this.list)
   }
 }
 </script>
 
-<style>
-#app{
+<style scoped>
+/* #app{
+  padding: 10px;
+} */
+.todos{
   padding: 10px;
 }
 .my_ipt{
@@ -96,8 +87,10 @@ footer{
   align-items:center
 }
 
-.ant-btn-group{
-  margin-left:40px;
+.sy{
+  text-align: center;
+  width:100px;
+  display:inline-block;
 }
 .footer a{
   margin-left:110px;
