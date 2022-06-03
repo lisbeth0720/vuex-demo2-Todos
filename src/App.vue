@@ -34,6 +34,7 @@
     </div>
 </template>
 <script>
+
 //引入组件
 //import 'ant-design-vue/dist/antd.vue'
 import {mapState} from 'vuex'
