@@ -3,6 +3,7 @@
        <a-input placeholder= "请输入任务" class="my_ipt" />
        <a-button type="primary">添加事项</a-button>
        <a-list bordered :dataSource="list" class="dt_list">
+       
            <!-- <a-list-item slot="renderItem" slot-scope="item"> -->
                   <!--复选框-->
                   <!-- <a-checkbox>{{item.info}}</a-checkbox> -->
@@ -27,6 +28,7 @@
                      <a-button>未完成</a-button>
                      <a-button>已完成</a-button>
                   </a-button-group>
+                  
                   <!-- 把已完成的任务清空 -->
                   <a>清除已完成</a>
              </div>
