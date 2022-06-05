@@ -2,10 +2,12 @@
    <div class="todos">
        <a-input placeholder= "请输入任务" class="my_ipt" />
        <a-button type="primary">添加事项</a-button>
+       
        <a-list bordered :dataSource="list" class="dt_list">
        
            <!-- <a-list-item slot="renderItem" slot-scope="item"> -->
                   <!--复选框-->
+                  
                   <!-- <a-checkbox>{{item.info}}</a-checkbox> -->
                   <!--删除链接-->
                   <!-- <a slot="actions">删除</a>    
@@ -52,6 +54,7 @@ export default {
     
   },
   computed:{
+  
     ...mapState(['list'])//vuex中state中的list(备注记得加[]号)
   },
   watch:{
@@ -71,6 +74,7 @@ export default {
   padding: 10px;
 } */
 .todos{
+
   padding: 10px;
 }
 .my_ipt{
